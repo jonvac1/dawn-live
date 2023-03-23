@@ -12,8 +12,6 @@
 <noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
-
-
 {% liquid
    assign product_handle = section.settings.product
    assign product = all_products[product_handle]
@@ -23,7 +21,7 @@ Product: "{{ product.title }}"
 Description: "{{ product.description }}"
 
 {% render "page-title-treatment", productX: product %}
-
+<!-- this is a template tag -->
 
 
 {%- style -%}
