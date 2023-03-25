@@ -1,41 +1,46 @@
-<link rel="stylesheet" href="{{ 'section-main-page.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'section-main-page.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'component-rte.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'">
 
 <noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
 
 
-
 {% comment %} we can't access product object directly unless on product.liquid so you are accessing the local schema, but 
-there are no attributes by the name of product listed within this section {% endcomment %}
-
-{% liquid
+there are no attributes by the name of product listed within this section; this would explain why there is no output {% endcomment %}{% liquid
    assign product_handle = section.settings.product
    assign product = all_products[product_handle]
 %}
 
-Product: "{{ product.title }}"   {% comment %} output object.attribute {% endcomment %}
-Description: "{{ product.description }}"  {% comment %} output object.attribute {% endcomment %}
+Product: "{{ product.title }}"
+{% comment %} output object.attribute but only prints "Product: " {% endcomment %}
+Description: "{{ product.description }}"
+{% comment %} output object.attribute but only prints "Description: " {% endcomment %}
 
-{% render "page-title-treatment", productX: product %} {% comment %} this says inserts the liquid file here 
-but I'm not sure what productX: product does; looks like an attribute with a value {% endcomment %}
-
-
-
-
-
-
-{%- style -%}
+{% render "page-title-treatment", productX: product %}
+{% comment %} this says inserts the liquid file here 
+but I'm not sure what productX: product does; looks like an attribute with a value {% endcomment %}{%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
+    px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
+    px;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top }}
+      px;
+      padding-bottom: {{ section.settings.padding_bottom }}
+      px;
     }
   }
 {%- endstyle -%}
@@ -50,35 +55,33 @@ but I'm not sure what productX: product does; looks like an attribute with a val
 </div>
 
 {% schema %}
-{
-  "name": "t:sections.main-page.name",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ]
-}
+  {
+    "name": "t:sections.main-page.name",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+    ]
+  }
 {% endschema %}
