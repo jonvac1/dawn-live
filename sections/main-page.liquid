@@ -14,6 +14,7 @@
 
 
 
+
 {% comment %} we can't access product object directly unless on product.liquid so you are accessing the local schema, but 
 there are no attributes by the name of product listed within this section; this would explain why there is no output {% endcomment %}
 
@@ -33,6 +34,9 @@ Description: "{{ product.description }}"
 but I'm not sure what productX: product does; looks like an attribute with a value; I did not know you can use the syntax like this; I've heard of 
 template engines being called "fancy string interpolaters with quirky syntax".  This seems to be true. {% endcomment %}{%- style -%}
 
+
+
+  
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
     px;
