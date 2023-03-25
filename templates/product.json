@@ -47,6 +47,12 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "501e6293-7c77-45e8-bc2c-1f195a2fb798": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
         }
       },
       "block_order": [
@@ -57,7 +63,8 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "501e6293-7c77-45e8-bc2c-1f195a2fb798"
       ],
       "settings": {
         "enable_sticky_info": true,
