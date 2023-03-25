@@ -15,7 +15,10 @@
 
 
 {% comment %} we can't access product object directly unless on product.liquid so you are accessing the local schema, but 
-there are no attributes by the name of product listed within this section; this would explain why there is no output {% endcomment %}{% liquid
+there are no attributes by the name of product listed within this section; this would explain why there is no output {% endcomment %}
+
+
+{% liquid
    assign product_handle = section.settings.product
    assign product = all_products[product_handle]
 %}
