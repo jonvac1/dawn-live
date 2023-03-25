@@ -16,10 +16,21 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "fb9b1c16-5a17-4ad9-8556-6c81581cc60d": {
+      "type": "page",
+      "settings": {
+        "page": "",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
-    "62ee1511-8a3c-44ad-af8f-97485edf513d"
+    "62ee1511-8a3c-44ad-af8f-97485edf513d",
+    "fb9b1c16-5a17-4ad9-8556-6c81581cc60d"
   ]
 }
