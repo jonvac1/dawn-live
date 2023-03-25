@@ -4,15 +4,27 @@
 <noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
+
+
+
+{% comment %} we can't access product object directly unless on product.liquid so you are accessing the local schema, but 
+there are no attributes by the name of product listed within this section {% endcomment %}
+
 {% liquid
    assign product_handle = section.settings.product
    assign product = all_products[product_handle]
 %}
 
-Product: "{{ product.title }}"
-Description: "{{ product.description }}"
+Product: "{{ product.title }}"   {% comment %} output object.attribute {% endcomment %}
+Description: "{{ product.description }}"  {% comment %} output object.attribute {% endcomment %}
 
-{% render "page-title-treatment", productX: product %}
+{% render "page-title-treatment", productX: product %} {% comment %} this says inserts the liquid file here 
+but I'm not sure what productX: product does; looks like an attribute with a value {% endcomment %}
+
+
+
+
+
 
 {%- style -%}
   .section-{{ section.id }}-padding {
