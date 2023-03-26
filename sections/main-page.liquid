@@ -14,12 +14,8 @@
 
 
 
-
 {% comment %} we can't access product object directly unless on product.liquid so you are accessing the local schema, but 
-there are no attributes by the name of product listed within this section; this would explain why there is no output {% endcomment %}
-
-
-{% liquid
+there are no attributes by the name of product listed within this section; this would explain why there is no output {% endcomment %}{% liquid
    assign product_handle = section.settings.product
    assign product = all_products[product_handle]
 %}
@@ -30,13 +26,10 @@ Description: "{{ product.description }}"
 {% comment %} output object.attribute but only prints "Description: " {% endcomment %}
 
 {% render "page-title-treatment", productX: product %}
-{% comment %} this says inserts the liquid file here 
-but I'm not sure what productX: product does; looks like an attribute with a value; I did not know you can use the syntax like this; I've heard of 
-template engines being called "fancy string interpolaters with quirky syntax".  This seems to be true. {% endcomment %}{%- style -%}
+{% comment %} this says inserts the liquid file here but I'm not sure what productX: product does; 
+looks like a key/value pair; I did not know you can use the syntax like this.
+{% endcomment %}{%- style -%}
 
-
-
-  
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
     px;
