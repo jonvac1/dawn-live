@@ -1,18 +1,18 @@
 <link
   rel="stylesheet"
-  href="{{ 'section-main-page.css' | asset_url }}"
+  href="{{ 'section-main-page.css' | asset_url }}" <!-- returns the url of the css page -->
   media="print"
   onload="this.media='all'">
 <link
   rel="stylesheet"
-  href="{{ 'component-rte.css' | asset_url }}"
+  href="{{ 'component-rte.css' | asset_url }}"     <!-- returns the url of the css page -->
   media="print"
   onload="this.media='all'">
 
-<noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>  <!-- returns url and stylesheet attributes -->
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
-
+{{ section.id  }}
 
 {% comment %} we can't access product object directly unless on product.liquid so we are accessing the local schema via section.settings, but 
 there are no attributes by the name of product listed within the schema; does this explain why there is no output? {% endcomment %}{% liquid
@@ -29,9 +29,12 @@ Description: "{{ product.description }}"
 {% comment %} this says inserts the liquid file here, but I'm not sure what productX: product does; 
 looks like a key/value pair; I did not know you can use the syntax like this within a tag.  Does this pass in 
 the productX, which is an object paired with product from above, to be rendered with page-title-treatment?
-{% endcomment %}{%- style -%}
+{% endcomment %}
 
-  .section-{{ section.id }}-padding {
+<!-- below id evaluates to section of page -->
+{%- style -%}
+
+  .section-{{ section.id }}-padding {     
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
     px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
