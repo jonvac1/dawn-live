@@ -14,8 +14,8 @@
 
 
 
-{% comment %} we can't access product object directly unless on product.liquid so you are accessing the local schema, but 
-there are no attributes by the name of product listed within this section; this would explain why there is no output? {% endcomment %}{% liquid
+{% comment %} we can't access product object directly unless on product.liquid so we are accessing the local schema via section.settings, but 
+there are no attributes by the name of product listed within the schema; does this explain why there is no output? {% endcomment %}{% liquid
    assign product_handle = section.settings.product
    assign product = all_products[product_handle]
 %}
@@ -26,8 +26,8 @@ Description: "{{ product.description }}"
 {% comment %} output object.attribute but only prints "Description: " {% endcomment %}
 
 {% render "page-title-treatment", productX: product %}
-{% comment %} this says inserts the liquid file here but I'm not sure what productX: product does; 
-looks like a key/value pair; I did not know you can use the syntax like this.
+{% comment %} this says inserts the liquid file here, but I'm not sure what productX: product does; 
+looks like a key/value pair; I did not know you can use the syntax like this within a tag.
 {% endcomment %}{%- style -%}
 
   .section-{{ section.id }}-padding {
