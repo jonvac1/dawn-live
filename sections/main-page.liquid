@@ -27,7 +27,8 @@ Description: "{{ product.description }}"
 
 {% render "page-title-treatment", productX: product %}
 {% comment %} this says inserts the liquid file here, but I'm not sure what productX: product does; 
-looks like a key/value pair; I did not know you can use the syntax like this within a tag.
+looks like a key/value pair; I did not know you can use the syntax like this within a tag.  Does this pass in 
+the productX, which is an object paired with product from above, to be rendered with page-title-treatment?
 {% endcomment %}{%- style -%}
 
   .section-{{ section.id }}-padding {
