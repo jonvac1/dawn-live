@@ -24,27 +24,9 @@ This serves as a base template for other pages, such as the default /page.html a
   <p>page.handle: {{ page.handle }}</p>
 {% endif %}
 
-{% comment %}
-prints: "template--18302228136214__main" on every page rendered
-{% endcomment %}
 <p>{{ section.id }}</p>
-<p>{{ product.title }}</p>
 
-{% comment %} assigning handle to access product resources {% endcomment %}
-{% liquid
-   assign product_handle = section.settings.product
-   assign product = all_products[product_handle]
-%}
-
-Product: "{{ product.title }}"
-{% comment %} output object.attribute but only prints "Product: " {% endcomment %}
-Description: "{{ product.description }}"
-{% comment %} output object.attribute but only prints "Description: " {% endcomment %}
-
-{% render "page-title-treatment", productX: product %}
-{% comment %} this says inserts the liquid file here, and then brings in product by assigning it to productX
-{% endcomment %}{%- style -%}
-
+{%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
     px;
