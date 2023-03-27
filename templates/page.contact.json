@@ -20,7 +20,7 @@
     "02ab166e-aad5-4b10-86ad-68ea08ed6bd9": {
       "type": "page",
       "settings": {
-        "page": "",
+        "page": "test",
         "heading_size": "h1",
         "color_scheme": "background-1",
         "padding_top": 36,
