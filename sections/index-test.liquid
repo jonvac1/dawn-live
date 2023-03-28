@@ -1,0 +1,14 @@
+{% comment %} assigning handle to access product resources {% endcomment %}
+{% liquid
+   assign product_handle = section.settings.product
+   assign product = all_products[product_handle]
+%}
+
+Product: "{{ product.title }}"
+{% comment %} output object.attribute but only prints "Product: " {% endcomment %}
+Description: "{{ product.description }}"
+{% comment %} output object.attribute but only prints "Description: " {% endcomment %}
+
+{% render "page-title-treatment", productX: product %}
+{% comment %} this says inserts the liquid file here, and then brings in product by assigning it to productX
+{% endcomment %}
