@@ -24,14 +24,19 @@ This serves as a base template for other pages, such as the default /page.html a
   <p>page.handle on main-page.liquid: {{ page.handle }}</p>
 {% endif %}
 
-<h1>{{ pages.learning-about-the-page-handle.title }}</h1>
-<h1>{{ pages["learning-about-the-page-handle"].title }}</h1>
-
 {% if pages["learning-about-the-page-handle"].title != empty %}
   <div class="tester">{{ pages["learning-about-the-page-     handle"].title }}</div>
 {% endif %}
 
 <p>{{ section.id }}</p>
+
+{% if product.price > 10000 %}
+  {% continue %}
+{% else %}
+  {% form "product", product, data-location: "collection" %}
+    {{ product.title }}
+  {% endform %}
+{% endif %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
