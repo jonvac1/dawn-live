@@ -20,23 +20,19 @@ This serves as a base template for other pages, such as the default /page.html a
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
 
-{% if page %}
-  <p>page.handle on main-page.liquid: {{ page.handle }}</p>
-{% endif %}
+{% liquid
+assign product_handle = section.settings.product
+assign product = all_products[product_handle]
+%}
 
-{% if pages["learning-about-the-page-handle"].title != empty %}
-  <div class="tester">{{ pages["learning-about-the-page-     handle"].title }}</div>
-{% endif %}
+Product: "{{ product.title }}"
+Description: "{{ product.description }}"
+Product: "{{ product.title }}"   
+Description: "{{ product.description }}"
 
-<p>{{ section.id }}</p>
+{% render "page-title-treatment", productX: product %}
 
-{% if product.price > 10000 %}
-  {% continue %}
-{% else %}
-  {% form "product", product, data-location: "collection" %}
-    {{ product.title }}
-  {% endform %}
-{% endif %}
+
 
 {%- style -%}
   .section-{{ section.id }}-padding {
