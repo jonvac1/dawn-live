@@ -21,6 +21,7 @@ This serves as a base template for other pages, such as the default /page.html a
 <noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
+{% comment %}
 
 {% liquid
 assign product_handle = section.settings.product
@@ -34,7 +35,7 @@ Description: "{{ product.description }}"
 
 {% render "page-title-treatment", productX: product %}
 
-
+{% endcomment %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
